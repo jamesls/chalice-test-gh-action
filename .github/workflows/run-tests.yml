@@ -44,4 +44,4 @@ jobs:
           pip install -r requirements-dev.txt -r requirements-docs.txt
           pip install -e .
       - name: Run PRCheck
-        run: python -m pytest tests/unit test/functional tests/integration
+        run: python -m pytest tests/unit tests/functional tests/integration
