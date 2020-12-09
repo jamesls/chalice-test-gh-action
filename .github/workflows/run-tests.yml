@@ -8,7 +8,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: [2.7, 3.6, 3.7, 3.8]
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -21,3 +20,7 @@ jobs:
           pip install -e .
       - name: Run PRCheck
         run: make prcheck
+        if: matrix.python-version != 2.7
+      - name: Run PRCheck-Py2
+        run: make prcheck-py2
+        if: matrix.python-version == 2.7
